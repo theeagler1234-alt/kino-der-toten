@@ -74,6 +74,8 @@ Start in the lobby with 500 points and the M1911. Survive rounds and buy doors t
 
 For Cloudflare Pages, run `npm run cloudflare:stage`, then `npm run test:pages` to check the packaged game locally. `npm run cloudflare:deploy` rebuilds and publishes it to the existing `kino-der-toten` Pages project (Cloudflare login required). The build in `.work/cloudflare-pages` includes only Kino and splits map geometry and collision data into files below Pages' 25 MiB limit. Staging verifies every glTF buffer view, deduplicates identical collision positions, and verifies every triangle corner and the unchanged BVH. Python 3.11 with Pillow builds the mobile texture variants. Reports and browser screenshots are in `artifacts/cloudflare` and `artifacts/mobile-memory`. To check production, run `$env:KINO_URL='https://kino-der-toten.pages.dev/'; npm run test:pages` in PowerShell.
 
+For GitHub Pages, enable **Settings > Pages > Build and deployment > Source > GitHub Actions** once. The `Deploy GitHub Pages` workflow then stages and publishes Kino automatically on every push to `main`; it can also be started manually from the Actions tab. The deployment URL appears in the workflow summary and the repository's Pages settings.
+
 Run commands from this folder:
 
 ```powershell
